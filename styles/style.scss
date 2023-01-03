@@ -1,0 +1,442 @@
+
+// Primary colors
+$Marine-blue: hsl(213, 96%, 18%);
+$Purplish-blue: hsl(243, 100%, 62%);
+$Pastel-blue: hsl(228, 100%, 84%);
+$Light-blue: hsl(206, 94%, 87%);
+$Strawberry-red: hsl(354, 84%, 57%);
+
+// Neutral colors
+$Cool-gray: hsl(231, 11%, 63%);
+$Light-gray: hsl(229, 24%, 87%);
+$Magnolia: hsl(217, 100%, 97%);
+$Alabaster: hsl(231, 100%, 99%);
+$White: hsl(0, 0%, 100%);
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  min-height: 100vh;
+  background: $White;
+  line-height: 1.3;
+  font-family: Ubuntu-Regular;
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+  font-family: Ubuntu-Medium;
+  src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+
+@mixin btn() {
+  background: $Marine-blue;
+  border: none;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: $Alabaster;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+@mixin container() {
+  background: $Light-gray;
+  height: 65vh;
+  position: relative;
+}
+
+@mixin content() {
+  background: $White;
+  padding: 1rem;
+  width: 80%;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+}
+
+@mixin headingText() {
+  font-family: Ubuntu-Bold;
+  color: $Marine-blue;
+}
+
+@mixin paragraph() {
+  font-family: Ubuntu-Regular;
+  margin: 1rem 0;
+  color: $Cool-gray;
+  padding-right: 6.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.step-1,.step-2, .step-3, .step-4, .step-5{
+    display: none;
+}
+:is(.activated) {
+  display: initial;
+}
+
+.sidebar {
+  background: url(../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  padding: 2rem 4rem 7rem 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  .step {
+    .number {
+      border: 1px solid $Pastel-blue;
+      border-radius: 50%;
+      padding: 0.7rem 1rem;
+      font-weight: bold;
+      color: white;
+    }
+    .active {
+      background: $Pastel-blue;
+      color: $Marine-blue;
+    }
+    .step-one,
+    .step-two,
+    .step-three,
+    .step-four {
+      display: none;
+    }
+  }
+}
+
+.step-1 {
+  font-family: Ubuntu-Regular;
+  .container {
+    @include container();
+    form {
+      @include content();
+      .title {
+        @include headingText();
+      }
+      .subtitle {
+        @include paragraph();
+      }
+      .form-input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        label {
+          text-transform: capitalize;
+          color: $Marine-blue;
+          font-weight: 500;
+        }
+        input {
+          padding: 0.9rem;
+          border-radius: 0.2rem;
+          border: 0.1rem solid $Cool-gray;
+          text-transform: capitalize;
+          &::placeholder {
+            text-transform: lowercase;
+          }
+        }
+      }
+      .btn {
+        @include btn();
+        position: absolute;
+        bottom: -9.5rem;
+        right: 0;
+      }
+    }
+  }
+}
+.step-2 {
+  font-family: Ubuntu-Regular;
+  .container {
+    @include container();
+  }
+  .content {
+    @include content();
+    .title {
+      @include headingText();
+    }
+    .subtitle {
+      @include paragraph();
+    }
+    .boxes {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .box {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border: 0.11rem solid $Light-gray;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+          background: $Magnolia;
+          border-left: 0.11rem solid $Purplish-blue;
+          border-bottom: 0.11rem solid $Purplish-blue;
+          border-right: 0.11rem solid $Purplish-blue;
+        }
+      }
+    }
+    .plans {
+      display: flex;
+      justify-content: space-between;
+      background: $Magnolia;
+      margin: 0.5rem 0;
+      padding: 0.5rem 4rem;
+      .btn {
+        font-family: Ubuntu-bold;
+        border: none;
+        background: none;
+        font-size: 1.06rem;
+        color: $Cool-gray;
+      }
+      .selected {
+        color: $Marine-blue;
+      }
+      .switch {
+        width: 5rem;
+        height: 2rem;
+        background: $Marine-blue;
+        border-radius: 2rem;
+        position: relative;
+        cursor: pointer;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 45%;
+          height: inherit;
+          background: $White;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  .navigation {
+    position: absolute;
+    bottom: -3.4rem;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    .go-back{
+        background: none;
+        border: none;
+        font-family: Ubuntu-Bold;
+        color: $Cool-gray;
+        cursor: pointer;
+    }
+    .next-step{
+        @include btn();
+    }
+  }
+}
+
+.step-3{
+    font-family: Ubuntu-Regular;
+  .container {
+    position: relative;
+    @include container();
+  }
+  .content {
+    @include content();
+    .title {
+      @include headingText();
+    }
+    .subtitle {
+      @include paragraph();
+    }
+    .boxes{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: .110rem solid $Light-gray;
+        padding: 0.5rem;
+        border-radius: .5rem;
+        .check{
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        input:checked ~ .box{
+          background: #000;
+        }
+      } 
+    }
+  }
+  .navigation {
+    position: absolute;
+    bottom: -3.4rem;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    .go-back{
+        background: none;
+        border: none;
+        font-family: Ubuntu-Bold;
+        color: $Cool-gray;
+        cursor: pointer;
+    }
+    .next-step{
+        @include btn();
+    }
+  }
+}
+
+.step-4{
+  font-family: Ubuntu-Regular;
+  .container {
+    position: relative;
+    @include container();
+  }
+  .content {
+    @include content();
+    .title {
+      @include headingText();
+    }
+    .subtitle {
+      @include paragraph();
+    }
+  }
+  .navigation {
+    position: absolute;
+    bottom: -3.4rem;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    .go-back{
+        background: none;
+        border: none;
+        font-family: Ubuntu-Bold;
+        color: $Cool-gray;
+        cursor: pointer;
+    }
+    .next-step{
+        @include btn();
+    }
+  }
+}
+.step-5{
+  font-family: Ubuntu-Regular;
+  text-align: center;
+  .container {
+    position: relative;
+    @include container();
+  }
+  .content {
+    @include content();
+    padding: 5rem 0;
+    .title {
+      @include headingText();
+    }
+    .subtitle {
+      @include paragraph();
+      padding: 0 2rem;
+    }
+  }
+}
+
+@media (min-width: 790px) {
+  .wrapper{
+    display: flex;
+    // min-height: 100vh;
+    align-items: center;
+    .sidebar {
+    background: url(../assets/images/bg-sidebar-desktop.svg);
+    background-size: cover;
+    padding:3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    gap: 2rem;
+    width: 25%;
+    height: 100vh;
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .number {
+        border: 1px solid $Pastel-blue;
+        border-radius: 50%;
+        padding: 0.7rem 1rem;
+        font-weight: bold;
+        color: white;
+      }
+      .active {
+        background: $Pastel-blue;
+        color: $Marine-blue;
+      }
+    }
+    .step-one,
+    .step-two,
+    .step-three,
+    .step-four {
+      text-transform: uppercase;
+      display: initial;
+      font-weight: 400;
+      color: $Cool-gray;
+      span{
+        display: block;
+        font-weight: bold;
+        font-size: 1.3rem;
+        color: $Alabaster;
+      }
+    }
+  }
+
+  .steps{
+    width: 100%;
+    .container{
+      // height: 100vh;
+      background: $White;
+    }
+  }
+
+  .step-2{
+    .container{
+      width: 80%;
+      margin: auto;
+      .content{
+        .boxes{
+          flex-direction: row;
+          // justify-content: space-between;
+          .box{
+            flex-direction: column;
+            gap: 6rem;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 10rem 1rem .5rem;
+            
+          }
+        }
+        .plans{
+          padding: 1rem 13rem;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+
+  }
+}

@@ -1,0 +1,473 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  min-height: 100vh;
+  background: hsl(0deg, 0%, 100%);
+  line-height: 1.3;
+  font-family: Ubuntu-Regular;
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+  font-family: Ubuntu-Medium;
+  src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.step-1, .step-2, .step-3, .step-4, .step-5 {
+  display: none;
+}
+
+:is(.activated) {
+  display: initial;
+}
+
+.sidebar {
+  background: url(../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  padding: 2rem 4rem 7rem 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.sidebar .step .number {
+  border: 1px solid hsl(228deg, 100%, 84%);
+  border-radius: 50%;
+  padding: 0.7rem 1rem;
+  font-weight: bold;
+  color: white;
+}
+.sidebar .step .active {
+  background: hsl(228deg, 100%, 84%);
+  color: hsl(213deg, 96%, 18%);
+}
+.sidebar .step .step-one,
+.sidebar .step .step-two,
+.sidebar .step .step-three,
+.sidebar .step .step-four {
+  display: none;
+}
+
+.step-1 {
+  font-family: Ubuntu-Regular;
+}
+.step-1 .container {
+  background: hsl(229deg, 24%, 87%);
+  height: 65vh;
+  position: relative;
+}
+.step-1 .container form {
+  background: hsl(0deg, 0%, 100%);
+  padding: 1rem;
+  width: 80%;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+}
+.step-1 .container form .title {
+  font-family: Ubuntu-Bold;
+  color: hsl(213deg, 96%, 18%);
+}
+.step-1 .container form .subtitle {
+  font-family: Ubuntu-Regular;
+  margin: 1rem 0;
+  color: hsl(231deg, 11%, 63%);
+  padding-right: 6.5rem;
+}
+.step-1 .container form .form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.step-1 .container form .form-input label {
+  text-transform: capitalize;
+  color: hsl(213deg, 96%, 18%);
+  font-weight: 500;
+}
+.step-1 .container form .form-input input {
+  padding: 0.9rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid hsl(231deg, 11%, 63%);
+  text-transform: capitalize;
+}
+.step-1 .container form .form-input input::placeholder {
+  text-transform: lowercase;
+}
+.step-1 .container form .btn {
+  background: hsl(213deg, 96%, 18%);
+  border: none;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: hsl(231deg, 100%, 99%);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: -9.5rem;
+  right: 0;
+}
+
+.step-2 {
+  font-family: Ubuntu-Regular;
+}
+.step-2 .container {
+  background: hsl(229deg, 24%, 87%);
+  height: 65vh;
+  position: relative;
+}
+.step-2 .content {
+  background: hsl(0deg, 0%, 100%);
+  padding: 1rem;
+  width: 80%;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+}
+.step-2 .content .title {
+  font-family: Ubuntu-Bold;
+  color: hsl(213deg, 96%, 18%);
+}
+.step-2 .content .subtitle {
+  font-family: Ubuntu-Regular;
+  margin: 1rem 0;
+  color: hsl(231deg, 11%, 63%);
+  padding-right: 6.5rem;
+}
+.step-2 .content .boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.step-2 .content .boxes .box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 0.11rem solid hsl(229deg, 24%, 87%);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.step-2 .content .boxes .box:hover {
+  background: hsl(217deg, 100%, 97%);
+  border-left: 0.11rem solid hsl(243deg, 100%, 62%);
+  border-bottom: 0.11rem solid hsl(243deg, 100%, 62%);
+  border-right: 0.11rem solid hsl(243deg, 100%, 62%);
+}
+.step-2 .content .plans {
+  display: flex;
+  justify-content: space-between;
+  background: hsl(217deg, 100%, 97%);
+  margin: 0.5rem 0;
+  padding: 0.5rem 4rem;
+}
+.step-2 .content .plans .btn {
+  font-family: Ubuntu-bold;
+  border: none;
+  background: none;
+  font-size: 1.06rem;
+  color: hsl(231deg, 11%, 63%);
+}
+.step-2 .content .plans .selected {
+  color: hsl(213deg, 96%, 18%);
+}
+.step-2 .content .plans .switch {
+  width: 5rem;
+  height: 2rem;
+  background: hsl(213deg, 96%, 18%);
+  border-radius: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+.step-2 .content .plans .switch::after {
+  content: "";
+  position: absolute;
+  width: 45%;
+  height: inherit;
+  background: hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+}
+.step-2 .navigation {
+  position: absolute;
+  bottom: -3.4rem;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.step-2 .navigation .go-back {
+  background: none;
+  border: none;
+  font-family: Ubuntu-Bold;
+  color: hsl(231deg, 11%, 63%);
+  cursor: pointer;
+}
+.step-2 .navigation .next-step {
+  background: hsl(213deg, 96%, 18%);
+  border: none;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: hsl(231deg, 100%, 99%);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.step-3 {
+  font-family: Ubuntu-Regular;
+}
+.step-3 .container {
+  position: relative;
+  background: hsl(229deg, 24%, 87%);
+  height: 65vh;
+  position: relative;
+}
+.step-3 .content {
+  background: hsl(0deg, 0%, 100%);
+  padding: 1rem;
+  width: 80%;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+}
+.step-3 .content .title {
+  font-family: Ubuntu-Bold;
+  color: hsl(213deg, 96%, 18%);
+}
+.step-3 .content .subtitle {
+  font-family: Ubuntu-Regular;
+  margin: 1rem 0;
+  color: hsl(231deg, 11%, 63%);
+  padding-right: 6.5rem;
+}
+.step-3 .content .boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.step-3 .content .boxes .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.11rem solid hsl(229deg, 24%, 87%);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.step-3 .content .boxes .box .check {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.step-3 .content .boxes .box input:checked ~ .box {
+  background: #000;
+}
+.step-3 .navigation {
+  position: absolute;
+  bottom: -3.4rem;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.step-3 .navigation .go-back {
+  background: none;
+  border: none;
+  font-family: Ubuntu-Bold;
+  color: hsl(231deg, 11%, 63%);
+  cursor: pointer;
+}
+.step-3 .navigation .next-step {
+  background: hsl(213deg, 96%, 18%);
+  border: none;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: hsl(231deg, 100%, 99%);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.step-4 {
+  font-family: Ubuntu-Regular;
+}
+.step-4 .container {
+  position: relative;
+  background: hsl(229deg, 24%, 87%);
+  height: 65vh;
+  position: relative;
+}
+.step-4 .content {
+  background: hsl(0deg, 0%, 100%);
+  padding: 1rem;
+  width: 80%;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+}
+.step-4 .content .title {
+  font-family: Ubuntu-Bold;
+  color: hsl(213deg, 96%, 18%);
+}
+.step-4 .content .subtitle {
+  font-family: Ubuntu-Regular;
+  margin: 1rem 0;
+  color: hsl(231deg, 11%, 63%);
+  padding-right: 6.5rem;
+}
+.step-4 .navigation {
+  position: absolute;
+  bottom: -3.4rem;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.step-4 .navigation .go-back {
+  background: none;
+  border: none;
+  font-family: Ubuntu-Bold;
+  color: hsl(231deg, 11%, 63%);
+  cursor: pointer;
+}
+.step-4 .navigation .next-step {
+  background: hsl(213deg, 96%, 18%);
+  border: none;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: hsl(231deg, 100%, 99%);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.step-5 {
+  font-family: Ubuntu-Regular;
+  text-align: center;
+}
+.step-5 .container {
+  position: relative;
+  background: hsl(229deg, 24%, 87%);
+  height: 65vh;
+  position: relative;
+}
+.step-5 .content {
+  background: hsl(0deg, 0%, 100%);
+  padding: 1rem;
+  width: 80%;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+  padding: 5rem 0;
+}
+.step-5 .content .title {
+  font-family: Ubuntu-Bold;
+  color: hsl(213deg, 96%, 18%);
+}
+.step-5 .content .subtitle {
+  font-family: Ubuntu-Regular;
+  margin: 1rem 0;
+  color: hsl(231deg, 11%, 63%);
+  padding-right: 6.5rem;
+  padding: 0 2rem;
+}
+
+@media (min-width: 790px) {
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .wrapper .sidebar {
+    background: url(../assets/images/bg-sidebar-desktop.svg);
+    background-size: cover;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    gap: 2rem;
+    width: 25%;
+    height: 100vh;
+  }
+  .wrapper .sidebar .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .wrapper .sidebar .step .number {
+    border: 1px solid hsl(228deg, 100%, 84%);
+    border-radius: 50%;
+    padding: 0.7rem 1rem;
+    font-weight: bold;
+    color: white;
+  }
+  .wrapper .sidebar .step .active {
+    background: hsl(228deg, 100%, 84%);
+    color: hsl(213deg, 96%, 18%);
+  }
+  .wrapper .sidebar .step-one,
+  .wrapper .sidebar .step-two,
+  .wrapper .sidebar .step-three,
+  .wrapper .sidebar .step-four {
+    text-transform: uppercase;
+    display: initial;
+    font-weight: 400;
+    color: hsl(231deg, 11%, 63%);
+  }
+  .wrapper .sidebar .step-one span,
+  .wrapper .sidebar .step-two span,
+  .wrapper .sidebar .step-three span,
+  .wrapper .sidebar .step-four span {
+    display: block;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: hsl(231deg, 100%, 99%);
+  }
+  .wrapper .steps {
+    width: 100%;
+  }
+  .wrapper .steps .container {
+    background: hsl(0deg, 0%, 100%);
+  }
+  .wrapper .step-2 .container {
+    width: 80%;
+    margin: auto;
+  }
+  .wrapper .step-2 .container .content .boxes {
+    flex-direction: row;
+  }
+  .wrapper .step-2 .container .content .boxes .box {
+    flex-direction: column;
+    gap: 6rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 10rem 1rem 0.5rem;
+  }
+  .wrapper .step-2 .container .content .plans {
+    padding: 1rem 13rem;
+    margin-top: 2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
